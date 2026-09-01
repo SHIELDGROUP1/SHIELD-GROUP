@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shield Group case studies - Strategic digital marketing campaigns for authors and publishers. Client confidentiality protected by design.">
+    <meta property="og:title" content="Our Work — Shield Group">
+    <meta property="og:description" content="Strategic marketing campaigns that turn reader attention into measurable revenue.">
+    <meta property="og:type" content="website">
+    
+    <title>Our Work — Shield Group</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ============================================
+           CONFIGURATION & VARIABLES
+           ============================================ */
+        :root {
+            --color-dark: #1a1a1a;
+            --color-charcoal: #2d2d2d;
+            --color-medium: #4a4a4a;
+            --color-light-gray: #e8e8e8;
+            --color-ivory: #f7f5f2;
+            --color-white: #ffffff;
+            --color-accent: #c9a961;
+            --color-accent-dark: #9d7d3e;
+            
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --spacing-xl: 6rem;
+            --spacing-xxl: 8rem;
+            
+            --transition-fast: 0.2s ease;
+            --transition-medium: 0.4s ease;
+            --transition-slow: 0.6s ease;
+            
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.16);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-weight: 400;
+            line-height: 1.7;
+            color: var(--color-dark);
+            background-color: var(--color-ivory);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            html {
+                scroll-behavior: auto;
+            }
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            letter-spacing: -0.01em;
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2.25rem);
+        }
+
+        p {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: all var(--transition-fast);
+        }
+
+        strong {
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 var(--spacing-sm);
+            }
+        }
+
+        section {
+            padding: var(--spacing-xxl) 0;
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: var(--spacing-lg) 0;
+            }
+        }
+
+        /* ============================================
+           NAVIGATION
+           ============================================ */
+        .navigation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(247, 245, 242, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all var(--transition-medium);
+        }
+
+        .navigation.scrolled {
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-sm) 0;
+        }
+
+        .nav-brand a {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            color: var(--color-dark);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: var(--spacing-md);
+            align-items: center;
+        }
+
+        .nav-menu a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--color-charcoal);
+            position: relative;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-accent);
+            transition: width var(--transition-fast);
+        }
+
+        .nav-menu a:hover::after,
+        .nav-menu a.active::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background-color: var(--color-dark);
+            color: var(--color-white) !important;
+            padding: 0.6rem 1.5rem;
+            border-radius: 4px;
+            transition: all var(--transition-fast);
+        }
+
+        .nav-cta::after {
+            display: none;
+        }
+
+        .nav-cta:hover {
+            background-color: var(--color-accent-dark);
+            transform: translateY(-2px);
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .nav-toggle span {
+            width: 25px;
+            height: 2px;
+            background-color: var(--color-dark);
+            transition: all var(--transition-fast);
+        }
+
+        @media (max-width: 968px) {
+            .nav-toggle {
+                display: flex;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background-color: var(--color-ivory);
+                flex-direction: column;
+                padding: var(--spacing-md);
+                gap: var(--spacing-sm);
+                transform: translateX(100%);
+                transition: transform var(--transition-medium);
+                box-shadow: var(--shadow-md);
+            }
+            
+            .nav-menu.active {
+                transform: translateX(0);
+            }
+        }
+
+        /* ============================================
+           BUTTONS
+           ============================================ */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-align: center;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--color-dark);
+            color: var(--color-white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--color-accent-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* ============================================
+           HERO SECTION WITH BACKGROUND IMAGE
+           ============================================ */
+        .page-hero {
+            position: relative;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+            overflow: hidden;
+        }
+
+        .hero-background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('assets/work-hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: -2;
+        }
+
+        .hero-background-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(26, 26, 26, 0.85) 0%, 
+                rgba(45, 45, 45, 0.75) 50%,
+                rgba(26, 26, 26, 0.85) 100%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: var(--color-white);
+            max-width: 900px;
+            margin: 0 auto;
+            padding: var(--spacing-xl) 0;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .hero-content h1 {
+            color: var(--color-white);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+        }
+
+        /* ============================================
+           INTRO SECTION
+           ============================================ */
+        .intro-section {
+            text-align: center;
+            padding: var(--spacing-xl) 0;
+        }
+
+        .intro-section h2 {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .intro-section p {
+            font-size: 1.15rem;
+            color: var(--color-medium);
+            max-width: 800px;
+            margin: 0 auto var(--spacing-md) auto;
+        }
+
+        /* ============================================
+           CASE STUDY CARDS WITH BACKGROUND IMAGES
+           ============================================ */
+        .case-studies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xxl);
+        }
+
+        @media (max-width: 768px) {
+            .case-studies-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .case-study-card {
+            position: relative;
+            min-height: 500px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+            cursor: pointer;
+        }
+
+        .case-study-card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .case-study-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: transform var(--transition-slow);
+        }
+
+        .case-study-card:hover .case-study-bg {
+            transform: scale(1.05);
+        }
+
+        .case-study-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, 
+                rgba(26, 26, 26, 0.4) 0%, 
+                rgba(26, 26, 26, 0.85) 70%,
+                rgba(26, 26, 26, 0.95) 100%);
+            padding: var(--spacing-lg);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            color: var(--color-white);
+        }
+
+        .case-tag {
+            display: inline-block;
+            background-color: var(--color-accent);
+            color: var(--color-dark);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: var(--spacing-sm);
+            align-self: flex-start;
+        }
+
+        .case-study-card h3 {
+            font-size: 1.8rem;
+            color: var(--color-white);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .case-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .case-detail-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .case-detail-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-accent);
+            margin-bottom: 0.25rem;
+        }
+
+        .case-detail-value {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .case-description {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        /* ============================================
+           CONFIDENTIALITY NOTICE
+           ============================================ */
+        .confidentiality-notice {
+            background-color: var(--color-white);
+            border-left: 4px solid var(--color-accent);
+            padding: var(--spacing-lg);
+            border-radius: 4px;
+            margin: var(--spacing-xxl) 0;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .confidentiality-notice h3 {
+            font-size: 1.3rem;
+            margin-bottom: var(--spacing-sm);
+            color: var(--color-dark);
+        }
+
+        .confidentiality-notice p {
+            color: var(--color-medium);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 0;
+        }
+
+        .confidentiality-notice strong {
+            color: var(--color-accent-dark);
+        }
+
+        /* ============================================
+           STATS SECTION
+           ============================================ */
+        .stats-section {
+            background: linear-gradient(135deg, var(--color-charcoal) 0%, var(--color-dark) 100%);
+            color: var(--color-white);
+            text-align: center;
+            padding: var(--spacing-xxl) 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+            max-width: 1000px;
+            margin: var(--spacing-xl) auto 0 auto;
+        }
+
+        .stat-item {
+            padding: var(--spacing-md);
+        }
+
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--color-accent);
+            line-height: 1;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* ============================================
+           CTA SECTION
+           ============================================ */
+        .cta-section {
+            text-align: center;
+            padding: var(--spacing-xxl) 0;
+        }
+
+        .cta-section h2 {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .cta-section p {
+            font-size: 1.15rem;
+            color: var(--color-medium);
+            margin-bottom: var(--spacing-lg);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer {
+            background-color: var(--color-dark);
+            color: var(--color-white);
+            padding: var(--spacing-xl) 0 var(--spacing-md) 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .footer-brand h3 {
+            font-size: 1.75rem;
+            margin-bottom: var(--spacing-xs);
+            color: var(--color-white);
+        }
+
+        .footer-tagline {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .footer-statement {
+            color: var(--color-accent);
+            font-style: italic;
+        }
+
+        .footer-nav h4 {
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-sm);
+            color: var(--color-white);
+        }
+
+        .footer-nav ul {
+            list-style: none;
+        }
+
+        .footer-nav li {
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .footer-nav a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: color var(--transition-fast);
+        }
+
+        .footer-nav a:hover {
+            color: var(--color-accent);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: var(--spacing-sm);
+            flex-wrap: wrap;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all var(--transition-fast);
+        }
+
+        .social-icon:hover {
+            background-color: var(--color-accent);
+            transform: translateY(-4px);
+        }
+
+        .footer-bottom {
+            padding-top: var(--spacing-md);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+        }
+
+        .footer-philosophy {
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: var(--spacing-md);
+        }
+
+        .footer-legal a {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        .footer-legal a:hover {
+            color: var(--color-accent);
+        }
+
+        .footer-copyright {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 968px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Navigation -->
+    <nav id="navigation" class="navigation">
+        <div class="container">
+            <div class="nav-content">
+                <div class="nav-brand">
+                    <a href="index.html">SHIELD GROUP</a>
+                </div>
+                
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="method.html">Method</a></li>
+                    <li><a href="case-studies.html" class="active">Work</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="apply.html" class="nav-cta">Apply Now</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Background Image -->
+    <section class="page-hero">
+        <div class="hero-background-image"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">Our Work</div>
+                <h1>Strategic Campaigns. Measurable Results.</h1>
+                <p>We've helped authors and publishers across the US, UK, Australia, France, and Kuwait turn reader attention into meaningful commercial action. Client identities and confidential campaign details are protected by design.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Intro Section -->
+    <section class="intro-section">
+        <div class="container">
+            <h2>Great Books Can Be Invisible.</h2>
+            <p>Authors and publishers can have excellent projects and still struggle because the right readers haven't discovered them, attention isn't converting into action, or there's no clear strategy connecting visibility to revenue.</p>
+            <p><strong>That's where Shield Group comes in.</strong></p>
+        </div>
+    </section>
+
+    <!-- Case Studies Grid -->
+    <section style="padding-top: 0;">
+        <div class="container">
+            <div class="case-studies-grid">
+                
+                <!-- Case Study 1 -->
+                <div class="case-study-card">
+                    <!-- REPLACE WITH YOUR CASE STUDY BACKGROUND IMAGE -->
+                    <div class="case-study-bg" style="background-image: url('assets/case-fiction.jpg');"></div>
+                    <div class="case-study-overlay">
+                        <span class="case-tag">Confidential Project</span>
+                        <h3>Fiction Author Campaign</h3>
+                        <div class="case-details">
+                            <div class="case-detail-item">
+                                <span class="case-detail-label">Genre</span>
+                                <span class="case-detail-value">Fiction</span>
+                            </div>
+                            <div class="case-detail-item">
+                                <span class="case-detail-label">Challenge</span>
+                                <span class="case-detail-value">Low visibility</span>
+                            </div>
+                            <div class="case-detail-item">
+                                <span class="case-detail-label">Approach</span>
+                                <span class="case-detail-value">Strategic content</span>
+                            </div>
+                            <div class="case-detail-item">
+                                <span class="case-detail-label">Focus</span>
+                                <span class="case-detail-value">Reader engagement</span>
+                            </div>
+                        </div>
+                        <p class="case-description">
+                            Audience research combined with curiosity-driven content and targeted promotion to increase reader discovery and engagement around a fiction project.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Case Study 2 -->
+                <div class="case-study-card">
+                    <div class="case-study-bg" style="background-image: url('assets/case-publisher.jpg');"></div>
+                    <div class="case-study-overlay">
+                        <span class="case-tag">Confidential Project</span>
+                        <h3>Publishing House Campaign</h3>
+                        <div class="case-details">
+                            <div class="case-detail-item">
+                                <span class="case-detail-label">Client Type</span>
+                                <span class="case-detail-value">Publisher</span>
+                            </div>
+                            <div class="case-detail-item">
+                                <span class="case-detail-label">Challenge</span>
+                                <span class="case-detail-value">Weak digital presence</span>
+                            </div>
+                            <div class="case-detail-item">
+                                <span class="case-detail-label">Approach</span>
+                                <span class="case-detail-value">Campaign promotion</span>
+                            </div>
+                            <div class="case-detail-item">
+                                <span class="case-detail-label">Focus</span>
+                                <span class="case-detail-value">Audience growth</span>
+                            </div>
+                        </div>
+                        <p class="case-description">
+                            Strategic content development and campaign optimization designed to build awareness around a title and create conversion opportunities.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Case Study 3 -->
+                <div class="case-study-card">
+                    <div class="case-study-bg" style="background-image: url('assets/case-nonfiction.jpg');"></div>
+                    <div class="case-study-overlay">
+                        <span class="case-tag">Confidential Project</span>
+                        <h3>Non-Fiction Launch</h3>
+                        <div class="case-details">
+                            <div class="case-detail-item">
+                                <span class="case-detail-label">Genre</span>
+                                <span class="case-detail-value">Non-Fiction</span>
+                            </div>
+                            <div class="case-detail-item">
+                                <span class="case-detail-label">Challenge</span>
+                                <span class="case-detail-value">New release promotion</span>
+                            </div>
+                            <div class="case-detail-item">
+                                <span class="case-detail-label">Approach</span>
+                                <span class="case-detail-value">Launch campaign</span>
+                            </div>
+                            <div class="case-detail-item">
+                                <span class="case-detail-label">Focus</span>
+                                <span class="case-detail-value">Awareness & action</span>
+                            </div>
+                        </div>
+                        <p class="case-description">
+                            Structured launch campaign combining audience targeting, strategic content, paid advertising, and continuous optimization.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Case Study 4 -->
+                <div class="case-study-card">
+                    <div class="case-study-bg" style="background-image: url('assets/case-international.jpg');"></div>
+                    <div class="case-study-overlay">
+                        <span class="case-tag">Confidential Project</span>
+                        <h3>International Author</h3>
+                        <div class="case-details">
+                            <div class="case-detail-item">
+                                <span class="case-detail-label">Region</span>
+                                <span class="case-detail-value">International</span>
+                            </div>
+                            <div class="case-detail-item">
+                                <span class="case-detail-label">Challenge</span>
+                                <span class="case-detail-value">Audience reach</span>
+                            </div>
+                            <div class="case-detail-item">
+                                <span class="case-detail-label">Approach</span>
+                                <span class="case-detail-value">Multi-platform strategy</span>
+                            </div>
+                            <div class="case-detail-item">
+                                <span class="case-detail-label">Focus</span>
+                                <span class="case-detail-value">Discovery & conversion</span>
+                            </div>
+                        </div>
+                        <p class="case-description">
+                            Cross-platform campaign designed to reach international audiences and create pathways from attention to meaningful action.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Case Study 5 -->
+                <div class="case-study-card">
+                    <div class="case-study-bg" style="background-image: url('assets/case-series.jpg');"></div>
+                    <div class="case-study-overlay">
+                        <span class="case-tag">Confidential Project</span>
+                        <h3>Book Series Promotion</h3>
+                        <div class="case-details">
+                            <div class="case-detail-item">
+                                <span class="case-detail-label">Project Type</span>
+                                <span class="case-detail-value">Series</span>
+                            </div>
+                            <div class="case-detail-item">
+                                <span class="case-detail-label">Challenge</span>
+                                <span class="case-detail-value">Multi-title awareness</span>
+                            </div>
+                            <div class="case-detail-item">
+                                <span class="case-detail-label">Approach</span>
+                                <span class="case-detail-value">Sequential campaigns</span>
+                            </div>
+                            <div class="case-detail-item">
+                                <span class="case-detail-label">Focus</span>
+                                <span class="case-detail-value">Series momentum</span>
+                            </div>
+                        </div>
+                        <p class="case-description">
+                            Strategic campaign architecture designed to build awareness and reader interest across multiple titles within a series.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Case Study 6 -->
+                <div class="case-study-card">
+                    <div class="case-study-bg" style="background-image: url('assets/case-indie.jpg');"></div>
+                    <div class="case-study-overlay">
+                        <span class="case-tag">Confidential Project</span>
+                        <h3>Independent Publisher</h3>
+                        <div class="case-details">
+                            <div class="case-detail-item">
+                                <span class="case-detail-label">Client Type</span>
+                                <span class="case-detail-value">Indie Publisher</span>
+                            </div>
+                            <div class="case-detail-item">
+                                <span class="case-detail-label">Challenge</span>
+                                <span class="case-detail-value">Limited budget</span>
+                            </div>
+                            <div class="case-detail-item">
+                                <span class="case-detail-label">Approach</span>
+                                <span class="case-detail-value">Efficient targeting</span>
+                            </div>
+                            <div class="case-detail-item">
+                                <span class="case-detail-label">Focus</span>
+                                <span class="case-detail-value">ROI optimization</span>
+                            </div>
+                        </div>
+                        <p class="case-description">
+                            Budget-conscious campaign strategy focused on efficient audience targeting and measurable performance optimization.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Confidentiality Notice -->
+            <div class="confidentiality-notice">
+                <h3><i class="fas fa-shield-alt" style="color: var(--color-accent); margin-right: 0.5rem;"></i> Client Confidentiality Protected by Design</h3>
+                <p>
+                    <strong>Shield Group treats client information as confidential.</strong> The projects shown above are anonymized to protect client identities, proprietary campaign data, and sensitive business information. Specific performance metrics, author names, book titles, and identifying details are intentionally withheld. This approach is central to how we operate—your project's details will be protected the same way.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <h2 style="color: var(--color-white); margin-bottom: var(--spacing-sm);">Focused on Growth</h2>
+            <p style="color: rgba(255, 255, 255, 0.8); font-size: 1.1rem; max-width: 700px; margin: 0 auto;">
+                While we protect specific client metrics, we're committed to measurable results.
+            </p>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Countries Served</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Confidential</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Build Your Strategic Campaign?</h2>
+            <p>
+                Every project is different. Let's discuss how Shield Group can help turn reader attention around your book or publishing project into measurable commercial action.
+            </p>
+            <a href="apply.html" class="btn btn-primary">Apply to Work With Shield Group</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>SHIELD GROUP</h3>
+                    <p class="footer-tagline">Digital Marketing Agency</p>
+                    <p class="footer-statement">Turning Reader Attention Into Measurable Revenue.</p>
+                </div>
+
+                <div class="footer-nav">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="method.html">Method</a></li>
+                        <li><a href="case-studies.html">Work</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="apply.html">Apply Now</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-connect">
+                    <h4>Connect</h4>
+                    <div class="footer-social">
+                        <a href="#instagram" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#facebook" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#tiktok" class="social-icon" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="#linkedin" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#x" class="social-icon" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#whatsapp" class="social-icon" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-philosophy">
+                    Built around strategy. Driven by attention. Focused on growth.
+                </div>
+                <div class="footer-legal">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms</a>
+                </div>
+                <div class="footer-copyright">
+                    © 2026 Shield Group. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navigation');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Fallback for missing background images
+        document.querySelectorAll('.case-study-bg').forEach((bg, index) => {
+            const img = new Image();
+            const currentBg = bg.style.backgroundImage.match(/url\(['"]?([^'"]+)['"]?\)/);
+            if (currentBg) {
+                img.src = currentBg[1];
+                img.onerror = function() {
+                    // Create SVG fallback with gradient
+                    const gradients = [
+                        'linear-gradient(135deg, #c9a961 0%, #9d7d3e 100%)',
+                        'linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%)',
+                        'linear-gradient(135deg, #4a4a4a 0%, #2d2d2d 100%)',
+                        'linear-gradient(135deg, #9d7d3e 0%, #6b5528 100%)',
+                        'linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%)',
+                        'linear-gradient(135deg, #c9a961 0%, #a08549 100%)'
+                    ];
+                    bg.style.backgroundImage = gradients[index % gradients.length];
+                };
+            }
+        });
+
+        // Fallback for hero background
+        const heroImg = new Image();
+        heroImg.src = 'assets/work-hero-bg.jpg';
+        heroImg.onerror = function() {
+            document.querySelector('.hero-background-image').style.backgroundImage = 
+                'linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%)';
+        };
+    </script>
+</body>
+</html>
