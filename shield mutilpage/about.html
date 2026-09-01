@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shield Group was built around a simple belief: great projects should not be overlooked simply because they lack the right marketing strategy.">
+    <title>About — Shield Group</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --color-dark: #1a1a1a;
+            --color-charcoal: #2d2d2d;
+            --color-medium: #4a4a4a;
+            --color-light-gray: #e8e8e8;
+            --color-ivory: #f7f5f2;
+            --color-white: #ffffff;
+            --color-accent: #c9a961;
+            --color-accent-dark: #9d7d3e;
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --spacing-xl: 6rem;
+            --spacing-xxl: 8rem;
+            --transition-fast: 0.2s ease;
+            --transition-medium: 0.4s ease;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.16);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body {
+            font-family: var(--font-body);
+            font-weight: 400;
+            line-height: 1.7;
+            color: var(--color-dark);
+            background-color: var(--color-ivory);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); letter-spacing: -0.02em; }
+        h2 { font-size: clamp(2rem, 4vw, 3.5rem); letter-spacing: -0.01em; }
+        h3 { font-size: clamp(1.5rem, 3vw, 2.25rem); }
+
+        a { color: inherit; text-decoration: none; transition: all var(--transition-fast); }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 0 var(--spacing-sm); }
+        }
+
+        section { padding: var(--spacing-xxl) 0; }
+
+        @media (max-width: 768px) {
+            section { padding: var(--spacing-lg) 0; }
+        }
+
+        /* Navigation */
+        .navigation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(247, 245, 242, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .navigation.scrolled { box-shadow: var(--shadow-sm); }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-sm) 0;
+        }
+
+        .nav-brand a {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            color: var(--color-dark);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: var(--spacing-md);
+            align-items: center;
+        }
+
+        .nav-menu a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--color-charcoal);
+            position: relative;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-accent);
+            transition: width var(--transition-fast);
+        }
+
+        .nav-menu a:hover::after { width: 100%; }
+
+        .nav-cta {
+            background-color: var(--color-dark);
+            color: var(--color-white) !important;
+            padding: 0.6rem 1.5rem;
+            border-radius: 4px;
+        }
+
+        .nav-cta::after { display: none; }
+        .nav-cta:hover {
+            background-color: var(--color-accent-dark);
+            transform: translateY(-2px);
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .nav-toggle span {
+            width: 25px;
+            height: 2px;
+            background-color: var(--color-dark);
+        }
+
+        @media (max-width: 968px) {
+            .nav-toggle { display: flex; }
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background-color: var(--color-ivory);
+                flex-direction: column;
+                padding: var(--spacing-md);
+                gap: var(--spacing-sm);
+                transform: translateX(100%);
+                transition: transform var(--transition-medium);
+                box-shadow: var(--shadow-md);
+            }
+            .nav-menu.active { transform: translateX(0); }
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-charcoal) 100%);
+            color: var(--color-white);
+            padding: 120px 0 var(--spacing-xl) 0;
+            text-align: center;
+        }
+
+        .page-header h1 { color: var(--color-white); margin-bottom: var(--spacing-md); }
+        .page-header p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* About Content */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: var(--spacing-xl);
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: var(--color-medium);
+            line-height: 1.8;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .about-philosophy {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            font-style: italic;
+            color: var(--color-accent-dark);
+            margin-top: var(--spacing-lg);
+            padding-left: var(--spacing-md);
+            border-left: 4px solid var(--color-accent);
+        }
+
+        @media (max-width: 968px) {
+            .about-grid { grid-template-columns: 1fr; }
+        }
+
+        /* Why Section */
+        .why-section {
+            background-color: var(--color-white);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--spacing-xl);
+        }
+
+        .why-item {
+            padding: var(--spacing-md);
+        }
+
+        .why-title {
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-sm);
+            color: var(--color-dark);
+        }
+
+        .why-text {
+            color: var(--color-medium);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* Values Section */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .value-card {
+            background-color: var(--color-white);
+            padding: var(--spacing-md);
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            transition: all var(--transition-medium);
+        }
+
+        .value-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .value-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto var(--spacing-sm);
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            color: white;
+        }
+
+        .value-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .value-card p {
+            color: var(--color-medium);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--color-charcoal) 0%, var(--color-dark) 100%);
+            color: var(--color-white);
+            text-align: center;
+            padding: var(--spacing-xxl) 0;
+        }
+
+        .cta-section h2 { color: var(--color-white); margin-bottom: var(--spacing-md); }
+        .cta-section p {
+            font-size: 1.15rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: var(--spacing-lg);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-align: center;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .btn-primary {
+            background-color: var(--color-dark);
+            color: var(--color-white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--color-accent-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--color-dark);
+            color: var(--color-white);
+            padding: var(--spacing-xl) 0 var(--spacing-md) 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .footer-brand h3 { font-size: 1.75rem; margin-bottom: var(--spacing-xs); color: var(--color-white); }
+        .footer-tagline { font-size: 0.95rem; color: rgba(255, 255, 255, 0.6); margin-bottom: var(--spacing-sm); }
+        .footer-statement { color: var(--color-accent); font-style: italic; }
+        .footer-nav h4 { font-size: 1.1rem; margin-bottom: var(--spacing-sm); color: var(--color-white); }
+        .footer-nav ul { list-style: none; }
+        .footer-nav li { margin-bottom: var(--spacing-xs); }
+        .footer-nav a { color: rgba(255, 255, 255, 0.7); }
+        .footer-nav a:hover { color: var(--color-accent); }
+        .footer-social { display: flex; gap: var(--spacing-sm); flex-wrap: wrap; }
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all var(--transition-fast);
+        }
+        .social-icon:hover { background-color: var(--color-accent); transform: translateY(-4px); }
+        .footer-bottom {
+            padding-top: var(--spacing-md);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+        }
+        .footer-philosophy { font-style: italic; color: rgba(255, 255, 255, 0.6); font-size: 0.9rem; }
+        .footer-legal { display: flex; gap: var(--spacing-md); }
+        .footer-legal a { color: rgba(255, 255, 255, 0.6); font-size: 0.9rem; }
+        .footer-copyright { color: rgba(255, 255, 255, 0.5); font-size: 0.9rem; }
+
+        @media (max-width: 968px) {
+            .footer-content { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Navigation -->
+    <nav id="navigation" class="navigation">
+        <div class="container">
+            <div class="nav-content">
+                <div class="nav-brand">
+                    <a href="index.html">SHIELD GROUP</a>
+                </div>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="method.html">Method</a></li>
+                    <li><a href="case-studies.html">Work</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="apply.html" class="nav-cta">Apply Now</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Why Shield Group Exists</h1>
+            <p>Great projects should not be overlooked simply because they lack the right marketing strategy.</p>
+        </div>
+    </section>
+
+    <!-- About Content -->
+    <section style="background: linear-gradient(135deg, var(--color-ivory) 0%, var(--color-white) 100%);">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image">
+                    <img src="assets/shield-profile.jpg" alt="Shield Group" id="aboutProfileImage">
+                </div>
+                <div class="about-text">
+                    <h2>Our Story</h2>
+                    <p>
+                        Shield Group was built around a simple belief: great projects should not be overlooked simply because they lack the right marketing strategy.
+                    </p>
+                    <p>
+                        Too often, talented authors and capable publishers create exceptional work that never reaches the audiences most likely to value it. Not because the work isn't worthy, but because the path from creation to discovery is broken.
+                    </p>
+                    <p>
+                        We founded Shield Group to fix that path. Our agency helps authors and publishers create stronger connections between their projects and the readers who are searching for exactly what they've created.
+                    </p>
+                    <p>
+                        Through research, strategy, content, advertising, optimization, and reporting, we build systematic approaches to visibility, attention, and conversion—protecting your marketing investment while pursuing measurable growth.
+                    </p>
+                    <div class="about-philosophy">
+                        "We build the path between attention and action."
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Section -->
+    <section class="why-section">
+        <div class="container">
+            <div style="text-align: center; max-width: 800px; margin: 0 auto var(--spacing-xl) auto;">
+                <h2>Why Authors & Publishers Choose Shield Group</h2>
+            </div>
+
+            <div class="why-grid">
+                <div class="why-item">
+                    <h3 class="why-title">Strategy Over Noise.</h3>
+                    <p class="why-text">
+                        We don't believe marketing success comes from simply being everywhere. We believe it comes from understanding who matters, what they care about, what will capture their attention, and what will move them toward action.
+                    </p>
+                </div>
+
+                <div class="why-item">
+                    <h3 class="why-title">Multidisciplinary Thinking</h3>
+                    <p class="why-text">
+                        Shield Group works with a professional group containing different expertise, perspectives, ideas, and strategic approaches. A multidisciplinary growth team built around one objective: turning attention into measurable opportunity.
+                    </p>
+                </div>
+
+                <div class="why-item">
+                    <h3 class="why-title">Attention is Valuable. Strategy Gives It Direction.</h3>
+                    <p class="why-text">
+                        Our job is not simply to generate attention. It is to help direct that attention toward meaningful action. That is the difference between visibility and valuable visibility.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section style="background-color: var(--color-ivory);">
+        <div class="container">
+            <div style="text-align: center; max-width: 800px; margin: 0 auto var(--spacing-xl) auto;">
+                <h2>What Guides Our Work</h2>
+                <p style="font-size: 1.1rem; color: var(--color-medium);">
+                    The principles that shape every strategy we develop
+                </p>
+            </div>
+
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Confidentiality</h3>
+                    <p>Client privacy and campaign details are protected by design, always.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Measurable Results</h3>
+                    <p>We focus on outcomes that matter, not vanity metrics.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Honest Communication</h3>
+                    <p>No guaranteed outcomes. Just strategic, transparent partnership.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Strategic Thinking</h3>
+                    <p>Every campaign begins with understanding, not assumptions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Let's Build Something Together</h2>
+            <p>
+                If you believe your project deserves more than visibility—if you're ready for a strategic approach to reader attention and revenue—we'd like to hear from you.
+            </p>
+            <a href="apply.html" class="btn btn-primary" style="background-color: white; color: var(--color-dark);">Apply to Work With Shield Group</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>SHIELD GROUP</h3>
+                    <p class="footer-tagline">Digital Marketing Agency</p>
+                    <p class="footer-statement">Turning Reader Attention Into Measurable Revenue.</p>
+                </div>
+                <div class="footer-nav">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="method.html">Method</a></li>
+                        <li><a href="case-studies.html">Work</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="apply.html">Apply Now</a></li>
+                    </ul>
+                </div>
+                <div class="footer-connect">
+                    <h4>Connect</h4>
+                    <div class="footer-social">
+                        <a href="#instagram" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#facebook" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#tiktok" class="social-icon" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="#linkedin" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#x" class="social-icon" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#whatsapp" class="social-icon" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-philosophy">Built around strategy. Driven by attention. Focused on growth.</div>
+                <div class="footer-legal">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms</a>
+                </div>
+                <div class="footer-copyright">© 2026 Shield Group. All rights reserved.</div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navigation');
+            if (window.scrollY > 50) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        });
+
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+        navToggle.addEventListener('click', () => navMenu.classList.toggle('active'));
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => navMenu.classList.remove('active'));
+        });
+
+        const aboutImage = document.getElementById('aboutProfileImage');
+        aboutImage.onerror = function() {
+            this.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500"%3E%3Crect fill="%232d2d2d" width="500" height="500"/%3E%3Ctext fill="%23c9a961" font-family="Arial, sans-serif" font-size="60" font-weight="bold" x="50%25" y="50%25" text-anchor="middle" dominant-baseline="middle"%3ESG%3C/text%3E%3C/svg%3E';
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Shield Group - Strategic digital marketing agency for authors and publishers. Get in touch to discuss your project.">
+    <meta property="og:title" content="Contact Shield Group">
+    <meta property="og:description" content="Get in touch with Shield Group to discuss your digital marketing needs.">
+    <meta property="og:type" content="website">
+    
+    <title>Contact — Shield Group</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ============================================
+           CONFIGURATION & VARIABLES
+           ============================================ */
+        :root {
+            /* Colors */
+            --color-dark: #1a1a1a;
+            --color-charcoal: #2d2d2d;
+            --color-medium: #4a4a4a;
+            --color-light-gray: #e8e8e8;
+            --color-ivory: #f7f5f2;
+            --color-white: #ffffff;
+            --color-accent: #c9a961;
+            --color-accent-dark: #9d7d3e;
+            
+            /* Typography */
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            
+            /* Spacing */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --spacing-xl: 6rem;
+            --spacing-xxl: 8rem;
+            
+            /* Transitions */
+            --transition-fast: 0.2s ease;
+            --transition-medium: 0.4s ease;
+            --transition-slow: 0.6s ease;
+            
+            /* Shadows */
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.16);
+        }
+
+        /* ============================================
+           RESET & BASE STYLES
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-weight: 400;
+            line-height: 1.7;
+            color: var(--color-dark);
+            background-color: var(--color-ivory);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            
+            html {
+                scroll-behavior: auto;
+            }
+        }
+
+        /* ============================================
+           TYPOGRAPHY
+           ============================================ */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            letter-spacing: -0.01em;
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2.25rem);
+        }
+
+        p {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: all var(--transition-fast);
+        }
+
+        strong {
+            font-weight: 600;
+        }
+
+        /* ============================================
+           LAYOUT
+           ============================================ */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 var(--spacing-sm);
+            }
+        }
+
+        section {
+            padding: var(--spacing-xxl) 0;
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: var(--spacing-lg) 0;
+            }
+        }
+
+        /* ============================================
+           NAVIGATION
+           ============================================ */
+        .navigation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(247, 245, 242, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all var(--transition-medium);
+        }
+
+        .navigation.scrolled {
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-sm) 0;
+        }
+
+        .nav-brand a {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            color: var(--color-dark);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: var(--spacing-md);
+            align-items: center;
+        }
+
+        .nav-menu a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--color-charcoal);
+            position: relative;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-accent);
+            transition: width var(--transition-fast);
+        }
+
+        .nav-menu a:hover::after,
+        .nav-menu a.active::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background-color: var(--color-dark);
+            color: var(--color-white) !important;
+            padding: 0.6rem 1.5rem;
+            border-radius: 4px;
+            transition: all var(--transition-fast);
+        }
+
+        .nav-cta::after {
+            display: none;
+        }
+
+        .nav-cta:hover {
+            background-color: var(--color-accent-dark);
+            transform: translateY(-2px);
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .nav-toggle span {
+            width: 25px;
+            height: 2px;
+            background-color: var(--color-dark);
+            transition: all var(--transition-fast);
+        }
+
+        @media (max-width: 968px) {
+            .nav-toggle {
+                display: flex;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background-color: var(--color-ivory);
+                flex-direction: column;
+                padding: var(--spacing-md);
+                gap: var(--spacing-sm);
+                transform: translateX(100%);
+                transition: transform var(--transition-medium);
+                box-shadow: var(--shadow-md);
+            }
+            
+            .nav-menu.active {
+                transform: translateX(0);
+            }
+        }
+
+        /* ============================================
+           BUTTONS
+           ============================================ */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-align: center;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--color-dark);
+            color: var(--color-white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--color-accent-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* ============================================
+           PAGE HEADER
+           ============================================ */
+        .page-header {
+            padding-top: 140px;
+            padding-bottom: var(--spacing-xl);
+            background: linear-gradient(135deg, #f7f5f2 0%, #e8e4df 100%);
+            text-align: center;
+        }
+
+        .page-header h1 {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .page-header p {
+            font-size: 1.15rem;
+            color: var(--color-medium);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* ============================================
+           CONTACT GRID
+           ============================================ */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .contact-card {
+            background-color: var(--color-white);
+            padding: var(--spacing-lg);
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto var(--spacing-md);
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .contact-card h3 {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .contact-card p {
+            color: var(--color-medium);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .contact-link {
+            color: var(--color-accent-dark);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-link:hover {
+            color: var(--color-accent);
+        }
+
+        /* ============================================
+           SOCIAL LINKS
+           ============================================ */
+        .social-links {
+            display: flex;
+            gap: var(--spacing-sm);
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: var(--spacing-md);
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background-color: rgba(201, 169, 97, 0.1);
+            border-radius: 50%;
+            transition: all var(--transition-fast);
+            color: var(--color-accent-dark);
+        }
+
+        .social-icon:hover {
+            background-color: var(--color-accent);
+            color: var(--color-white);
+            transform: translateY(-4px);
+        }
+
+        /* ============================================
+           CONTACT FORM
+           ============================================ */
+        .contact-form-section {
+            background-color: var(--color-white);
+            padding: var(--spacing-xl);
+            border-radius: 8px;
+            box-shadow: var(--shadow-md);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .contact-form-section {
+                padding: var(--spacing-md);
+            }
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .form-header h2 {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .form-header p {
+            color: var(--color-medium);
+            font-size: 1.05rem;
+        }
+
+        .form-header a {
+            color: var(--color-accent-dark);
+            text-decoration: underline;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .form-group {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+            color: var(--color-dark);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.9rem 1.2rem;
+            border: 2px solid var(--color-light-gray);
+            border-radius: 4px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: border-color var(--transition-fast);
+            background-color: var(--color-white);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--color-accent);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .form-note {
+            font-size: 0.9rem;
+            color: var(--color-medium);
+            margin-top: var(--spacing-md);
+            text-align: center;
+        }
+
+        .form-note a {
+            color: var(--color-accent-dark);
+            text-decoration: underline;
+        }
+
+        /* ============================================
+           CONFIDENTIALITY
+           ============================================ */
+        .confidentiality-section {
+            background-color: var(--color-dark);
+            color: var(--color-white);
+            text-align: center;
+            padding: var(--spacing-xl) 0;
+        }
+
+        .confidentiality-section p {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-style: italic;
+            max-width: 800px;
+            margin: 0 auto;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .confidentiality-section a {
+            color: var(--color-accent);
+            text-decoration: underline;
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer {
+            background-color: var(--color-dark);
+            color: var(--color-white);
+            padding: var(--spacing-xl) 0 var(--spacing-md) 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .footer-brand h3 {
+            font-size: 1.75rem;
+            margin-bottom: var(--spacing-xs);
+            color: var(--color-white);
+        }
+
+        .footer-tagline {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .footer-statement {
+            color: var(--color-accent);
+            font-style: italic;
+        }
+
+        .footer-nav h4 {
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-sm);
+            color: var(--color-white);
+        }
+
+        .footer-nav ul {
+            list-style: none;
+        }
+
+        .footer-nav li {
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .footer-nav a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: color var(--transition-fast);
+        }
+
+        .footer-nav a:hover {
+            color: var(--color-accent);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: var(--spacing-sm);
+            flex-wrap: wrap;
+        }
+
+        .footer-social .social-icon {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--color-white);
+        }
+
+        .footer-social .social-icon:hover {
+            background-color: var(--color-accent);
+            transform: translateY(-4px);
+        }
+
+        .footer-bottom {
+            padding-top: var(--spacing-md);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+        }
+
+        .footer-philosophy {
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: var(--spacing-md);
+        }
+
+        .footer-legal a {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        .footer-legal a:hover {
+            color: var(--color-accent);
+        }
+
+        .footer-copyright {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 968px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Navigation -->
+    <nav id="navigation" class="navigation">
+        <div class="container">
+            <div class="nav-content">
+                <div class="nav-brand">
+                    <a href="index.html">SHIELD GROUP</a>
+                </div>
+                
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="method.html">Method</a></li>
+                    <li><a href="case-studies.html">Work</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                    <li><a href="apply.html" class="nav-cta">Apply Now</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Get In Touch</h1>
+            <p>Whether you have a question about our approach or you're ready to discuss a project, we're glad to hear from you.</p>
+        </div>
+    </section>
+
+    <!-- Contact Cards -->
+    <section style="padding-top: var(--spacing-xl);">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email</h3>
+                    <p>For general inquiries, partnership questions, or press.</p>
+                    <a href="mailto:sheldcompany001@gmail.com" class="contact-link">
+                        sheldcompany001@gmail.com
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3>WhatsApp</h3>
+                    <p>Preferred for international clients requiring a quicker response.</p>
+                    <a href="https://wa.me/1234567890" class="contact-link" target="_blank" rel="noopener">
+                        Message us
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>International Clients</h3>
+                    <p>We work with authors and publishers across the US, UK, Australia, France, and Kuwait.</p>
+                    <div class="social-links">
+                        <a href="#instagram" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#facebook" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#tiktok" class="social-icon" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="#linkedin" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#x" class="social-icon" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section style="padding-bottom: var(--spacing-xxl);">
+        <div class="container">
+            <div class="contact-form-section">
+                <div class="form-header">
+                    <h2>Send a Message</h2>
+                    <p>For full project inquiries, please use our <a href="apply.html">Client Application</a> instead — it helps us prepare a more relevant response.</p>
+                </div>
+
+                <!-- FORMSPREE CONTACT FORM -->
+                <form action="https://formspree.io/f/meaqqbdv" method="POST">
+                    
+                    <!-- Hidden field to identify this as Contact (not Application) -->
+                    <input type="hidden" name="formType" value="Contact Message">
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="Jane Doe">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="_replyto" required placeholder="jane@example.com">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <input type="text" id="subject" name="_subject" required placeholder="What is this regarding?">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" required placeholder="Tell us a little about what you need..."></textarea>
+                    </div>
+
+                    <!-- Spam protection (invisible) -->
+                    <input type="text" name="_gotcha" style="display:none">
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+
+                    <p class="form-note">
+                        By submitting this form, you agree to our <a href="privacy.html">Privacy Policy</a>. We respond to most inquiries within 1–2 business days.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Confidentiality -->
+    <section class="confidentiality-section">
+        <div class="container">
+            <p>"Client identities and confidential campaign details are protected by design." — <a href="privacy.html">Read our Privacy Policy</a></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>SHIELD GROUP</h3>
+                    <p class="footer-tagline">Digital Marketing Agency</p>
+                    <p class="footer-statement">Turning Reader Attention Into Measurable Revenue.</p>
+                </div>
+
+                <div class="footer-nav">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="method.html">Method</a></li>
+                        <li><a href="case-studies.html">Work</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="apply.html">Apply Now</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-connect">
+                    <h4>Connect</h4>
+                    <div class="footer-social">
+                        <a href="#instagram" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#facebook" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#tiktok" class="social-icon" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="#linkedin" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#x" class="social-icon" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#whatsapp" class="social-icon" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-philosophy">
+                    Built around strategy. Driven by attention. Focused on growth.
+                </div>
+                <div class="footer-legal">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms</a>
+                </div>
+                <div class="footer-copyright">
+                    © 2026 Shield Group. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navigation');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

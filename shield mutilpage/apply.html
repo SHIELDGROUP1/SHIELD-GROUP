@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Apply to work with Shield Group - Strategic digital marketing for authors and publishers.">
+    <title>Apply — Shield Group</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --color-dark: #1a1a1a;
+            --color-charcoal: #2d2d2d;
+            --color-medium: #4a4a4a;
+            --color-light-gray: #e8e8e8;
+            --color-ivory: #f7f5f2;
+            --color-white: #ffffff;
+            --color-accent: #c9a961;
+            --color-accent-dark: #9d7d3e;
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --spacing-xl: 6rem;
+            --spacing-xxl: 8rem;
+            --transition-fast: 0.2s ease;
+            --transition-medium: 0.4s ease;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            line-height: 1.7;
+            color: var(--color-dark);
+            background-color: var(--color-ivory);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+            html {
+                scroll-behavior: auto;
+            }
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: var(--spacing-md);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: all var(--transition-fast);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 var(--spacing-sm);
+            }
+        }
+
+        /* Navigation */
+        .navigation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(247, 245, 242, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-sm) 0;
+        }
+
+        .nav-brand a {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: var(--spacing-md);
+            align-items: center;
+        }
+
+        .nav-menu a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--color-charcoal);
+            position: relative;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-accent);
+            transition: width var(--transition-fast);
+        }
+
+        .nav-menu a:hover::after,
+        .nav-menu a.active::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background-color: var(--color-dark);
+            color: var(--color-white) !important;
+            padding: 0.6rem 1.5rem;
+            border-radius: 4px;
+        }
+
+        .nav-cta::after {
+            display: none;
+        }
+
+        .nav-cta:hover {
+            background-color: var(--color-accent-dark);
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .nav-toggle span {
+            width: 25px;
+            height: 2px;
+            background-color: var(--color-dark);
+        }
+
+        @media (max-width: 968px) {
+            .nav-toggle {
+                display: flex;
+            }
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background-color: var(--color-ivory);
+                flex-direction: column;
+                padding: var(--spacing-md);
+                gap: var(--spacing-sm);
+                transform: translateX(100%);
+                transition: transform var(--transition-medium);
+                box-shadow: var(--shadow-md);
+            }
+            .nav-menu.active {
+                transform: translateX(0);
+            }
+        }
+
+        /* Page Header */
+        .page-header {
+            padding-top: 140px;
+            padding-bottom: var(--spacing-xl);
+            background: linear-gradient(135deg, #f7f5f2 0%, #e8e4df 100%);
+            text-align: center;
+        }
+
+        .page-header p {
+            font-size: 1.15rem;
+            color: var(--color-medium);
+            max-width: 700px;
+            margin: var(--spacing-sm) auto 0;
+        }
+
+        /* Form Section */
+        .form-section {
+            padding: var(--spacing-xxl) 0;
+        }
+
+        .application-form {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: var(--color-white);
+            padding: var(--spacing-xl);
+            border-radius: 8px;
+            box-shadow: var(--shadow-md);
+        }
+
+        @media (max-width: 768px) {
+            .application-form {
+                padding: var(--spacing-md);
+            }
+        }
+
+        .form-intro {
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .form-intro h2 {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .form-intro p {
+            color: var(--color-medium);
+            font-size: 1.05rem;
+        }
+
+        .form-section-title {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            color: var(--color-accent-dark);
+            margin: var(--spacing-lg) 0 var(--spacing-md) 0;
+            padding-bottom: var(--spacing-xs);
+            border-bottom: 2px solid var(--color-light-gray);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .form-group {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+            color: var(--color-dark);
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.9rem 1.2rem;
+            border: 2px solid var(--color-light-gray);
+            border-radius: 4px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: border-color var(--transition-fast);
+            background-color: var(--color-white);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-accent);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .checkbox-group {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .checkbox-group label {
+            display: flex;
+            align-items: flex-start;
+            font-weight: 400;
+            cursor: pointer;
+            gap: var(--spacing-xs);
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin-top: 4px;
+            flex-shrink: 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--color-dark);
+            color: var(--color-white);
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--color-accent-dark);
+            transform: translateY(-2px);
+        }
+
+        .form-note {
+            margin-top: var(--spacing-md);
+            font-size: 0.9rem;
+            color: var(--color-medium);
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .form-note a {
+            color: var(--color-accent-dark);
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--color-dark);
+            color: var(--color-white);
+            padding: var(--spacing-xl) 0 var(--spacing-md);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .footer-brand h3 {
+            font-size: 1.75rem;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .footer-tagline {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .footer-statement {
+            color: var(--color-accent);
+            font-style: italic;
+        }
+
+        .footer-nav h4 {
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .footer-nav ul {
+            list-style: none;
+        }
+
+        .footer-nav li {
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .footer-nav a {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-nav a:hover {
+            color: var(--color-accent);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: var(--spacing-sm);
+            flex-wrap: wrap;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all var(--transition-fast);
+        }
+
+        .social-icon:hover {
+            background-color: var(--color-accent);
+            transform: translateY(-4px);
+        }
+
+        .footer-bottom {
+            padding-top: var(--spacing-md);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+        }
+
+        .footer-philosophy {
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: var(--spacing-md);
+        }
+
+        .footer-legal a {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        .footer-copyright {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 968px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navigation">
+        <div class="container">
+            <div class="nav-content">
+                <div class="nav-brand">
+                    <a href="index.html">SHIELD GROUP</a>
+                </div>
+                
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="method.html">Method</a></li>
+                    <li><a href="case-studies.html">Work</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="apply.html" class="nav-cta active">Apply Now</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Apply to Work With Shield Group</h1>
+            <p>Tell us about your project. We'll review your application and respond within 1–2 business days with next steps or a custom strategy recommendation.</p>
+        </div>
+    </section>
+
+    <!-- Application Form -->
+    <section class="form-section">
+        <div class="container">
+            <div class="application-form">
+                <div class="form-intro">
+                    <h2>Project Application</h2>
+                    <p>Every project is different. This application helps us understand your objectives so we can prepare a relevant response.</p>
+                </div>
+
+                <!-- FORMSPREE FORM - USING YOUR LINK -->
+                <form action="https://formspree.io/f/meaqqbdv" method="POST">
+                    
+                    <!-- Hidden field to identify this as an Application (not Contact) -->
+                    <input type="hidden" name="formType" value="Project Application">
+                    
+                    <!-- Personal Information -->
+                    <h3 class="form-section-title">Personal Information</h3>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fullName">Full Name *</label>
+                            <input type="text" id="fullName" name="fullName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="_replyto" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="country">Country *</label>
+                            <select id="country" name="country" required>
+                                <option value="">Select your country</option>
+                                <option value="United States">United States</option>
+                                <option value="United Kingdom">United Kingdom</option>
+                                <option value="Australia">Australia</option>
+                                <option value="France">France</option>
+                                <option value="Kuwait">Kuwait</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company / Publishing Organization</label>
+                            <input type="text" id="company" name="company" placeholder="Optional">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="whatsapp">WhatsApp / Preferred Contact</label>
+                        <input type="text" id="whatsapp" name="whatsapp" placeholder="Optional">
+                    </div>
+
+                    <!-- Project Information -->
+                    <h3 class="form-section-title">Project Information</h3>
+
+                    <div class="form-group">
+                        <label for="clientType">Are you an Author or Publisher? *</label>
+                        <select id="clientType" name="clientType" required>
+                            <option value="">Please select</option>
+                            <option value="Author">Author</option>
+                            <option value="Publisher">Publisher</option>
+                            <option value="Both">Both</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="projectName">Book / Project Name *</label>
+                            <input type="text" id="projectName" name="projectName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="genre">Genre / Category *</label>
+                            <input type="text" id="genre" name="genre" required placeholder="e.g., Fiction, Non-Fiction, Business">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="website">Website / Project Link</label>
+                            <input type="url" id="website" name="website" placeholder="https://">
+                        </div>
+                        <div class="form-group">
+                            <label for="projectStage">Current Stage of Project *</label>
+                            <select id="projectStage" name="projectStage" required>
+                                <option value="">Select stage</option>
+                                <option value="Planning">Planning</option>
+                                <option value="Writing">Writing</option>
+                                <option value="Completed">Completed</option>
+                                <option value="Published">Published</option>
+                                <option value="Series">Series / Multiple Titles</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Marketing Challenge -->
+                    <h3 class="form-section-title">Marketing Challenge</h3>
+
+                    <div class="form-group">
+                        <label>What is your main marketing challenge? (Select all that apply)</label>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="challenge" value="Low sales"> Low sales</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="challenge" value="Low reader awareness"> Low reader awareness</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="challenge" value="Weak social presence"> Weak social presence</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="challenge" value="Need launch campaign"> Need a launch campaign</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="challenge" value="Advertising problems"> Advertising problems</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="challenge" value="Audience growth"> Audience growth</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="challenge" value="Content strategy"> Content strategy</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="challenge" value="Complete marketing strategy"> Need a complete marketing strategy</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="challenge" value="Other"> Other</label>
+                        </div>
+                    </div>
+
+                    <!-- Goals -->
+                    <div class="form-group">
+                        <label for="goals">What would you like Shield Group to help you achieve? *</label>
+                        <textarea id="goals" name="goals" required placeholder="Describe your marketing objectives and what success looks like for your project..."></textarea>
+                    </div>
+
+                    <!-- Budget -->
+                    <div class="form-group">
+                        <label for="budget">Budget Range *</label>
+                        <select id="budget" name="budget" required>
+                            <option value="">Select budget range</option>
+                            <option value="Under $1,000">Under $1,000</option>
+                            <option value="$1,000 - $2,500">$1,000 – $2,500</option>
+                            <option value="$2,500 - $5,000">$2,500 – $5,000</option>
+                            <option value="$5,000 - $10,000">$5,000 – $10,000</option>
+                            <option value="$10,000+">$10,000+</option>
+                            <option value="Prefer to discuss">Prefer to discuss</option>
+                        </select>
+                    </div>
+
+                    <!-- Timeline -->
+                    <div class="form-group">
+                        <label for="timeline">Timeline *</label>
+                        <select id="timeline" name="timeline" required>
+                            <option value="">Select timeline</option>
+                            <option value="Immediately">Immediately</option>
+                            <option value="Within 30 days">Within 30 days</option>
+                            <option value="1-3 months">1–3 months</option>
+                            <option value="3-6 months">3–6 months</option>
+                            <option value="Planning ahead">Planning ahead</option>
+                        </select>
+                    </div>
+
+                    <!-- Hidden Fields for Formspree -->
+                    <input type="hidden" name="_subject" value="New Shield Group Project Application">
+                    <input type="text" name="_gotcha" style="display:none">
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-primary">Submit Project Application</button>
+
+                    <p class="form-note">
+                        By submitting this application, you agree to our <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms of Service</a>. We respond to applications within 1–2 business days.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>SHIELD GROUP</h3>
+                    <p class="footer-tagline">Digital Marketing Agency</p>
+                    <p class="footer-statement">Turning Reader Attention Into Measurable Revenue.</p>
+                </div>
+
+                <div class="footer-nav">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="method.html">Method</a></li>
+                        <li><a href="case-studies.html">Work</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="apply.html">Apply Now</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-connect">
+                    <h4>Connect</h4>
+                    <div class="footer-social">
+                        <a href="#instagram" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#facebook" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#tiktok" class="social-icon" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="#linkedin" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#x" class="social-icon" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#whatsapp" class="social-icon" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-philosophy">
+                    Built around strategy. Driven by attention. Focused on growth.
+                </div>
+                <div class="footer-legal">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms</a>
+                </div>
+                <div class="footer-copyright">
+                    © 2026 Shield Group. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
